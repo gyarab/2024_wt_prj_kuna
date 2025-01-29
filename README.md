@@ -4,4 +4,5 @@ V této aplikaci bude moct každý uživatel sledovat aktuální ceny vybraných
 ![20250110_151754](https://github.com/user-attachments/assets/10a35a4d-b9cf-4697-bb49-dce5b739f479)
 
 ## ER Diagram
-![image](https://github.com/user-attachments/assets/5df724e9-9626-4cc8-9955-40cd3952f5af)
+![image](https://github.com/user-attachments/assets/caf860a8-848d-4082-bd7c-74b30aa172d4)
+
