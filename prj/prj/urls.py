@@ -17,6 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.views.generic import TemplateView
+from main.views import get_homepage
 
 urlpatterns = [
     path('admin/', admin.site.urls),
