@@ -1,0 +1,50 @@
+services:
+  web:
+    restart: unless-stopped
+    build: .
+    pull_policy: build
+    # ports:
+    #   - 8000:80
+    volumes:
+      - ./prj:/app
+
+    labels:
+      - "traefik.enable=true"
+
+      - "traefik.http.routers.wt-tk-http.rule=Host(`tk.gawt.dtcloud.cz`)"
+      - "traefik.http.routers.wt-tk-http.entrypoints=web"
+      - "traefik.http.routers.wt-tk-http.middlewares=wt-tk-redirect-https@docker"
+
+      - "traefik.http.middlewares.wt-tk-redirect-https.redirectscheme.scheme=https"
+      - "traefik.http.middlewares.wt-tk-redirect-https.redirectscheme.permanent=true"
+
+      - "traefik.http.routers.wt-tk-https.rule=Host(`tk.gawt.dtcloud.cz`)"
+      - "traefik.http.routers.wt-tk-https.entrypoints=websecure"
+      - "traefik.http.routers.wt-tk-https.tls=true"
+      - "traefik.http.routers.wt-tk-https.tls.certresolver=letsencrypt"
+
+  static:
+    image: nginx:alpine
+    restart: unless-stopped
+
+    volumes:
+      - ./prj/staticfiles:/usr/share/nginx/html/static:ro
+
+    labels:
+      - "traefik.enable=true"
+
+      - "traefik.http.routers.wt-tk-static-http.rule=Host(`tk.gawt.dtcloud.cz`) && PathPrefix(`/static`)"
+      - "traefik.http.routers.wt-tk-static-http.entrypoints=web"
+      - "traefik.http.routers.wt-tk-static-http.middlewares=wt-tk-static-redirect-https@docker"
+
+      - "traefik.http.middlewares.tk-tk-static-redirect-https.redirectscheme.scheme=https"
+      - "traefik.http.middlewares.tk-tk-static-redirect-https.redirectscheme.permanent=true"
+
+      - "traefik.http.routers.wt-tk-static-https.rule=Host(`tk.gawt.dtcloud.cz`) && PathPrefix(`/static`)"
+      - "traefik.http.routers.wt-tk-static-https.entrypoints=websecure"
+      - "traefik.http.routers.wt-tk-static-https.tls=true"
+      - "traefik.http.routers.wt-tk-static-https.tls.certresolver=letsencrypt"
+networks:
+  default:
+    name: proxy
+    external: true

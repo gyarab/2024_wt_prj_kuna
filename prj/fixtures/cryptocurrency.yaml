@@ -1,0 +1,22 @@
+[
+  {
+    "model": "app_name.cryptocurrency",
+    "pk": 1,
+    "fields": {
+      "name": "Bitcoin",
+      "symbol": "BTC",
+      "description": "Decentralizovaná digitální měna bez centrální banky.",
+      "type": 1
+    }
+  },
+  {
+    "model": "app_name.cryptocurrency",
+    "pk": 2,
+    "fields": {
+      "name": "Dogecoin",
+      "symbol": "DOGE",
+      "description": "Populární memecoin založený na vtipu.",
+      "type": 2
+    }
+  }
+]

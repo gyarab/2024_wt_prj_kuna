@@ -1,0 +1,18 @@
+[
+  {
+    "model": "app_name.userwatchlist",
+    "pk": 1,
+    "fields": {
+      "user": 1,
+      "cryptocurrency": 1
+    }
+  },
+  {
+    "model": "app_name.userwatchlist",
+    "pk": 2,
+    "fields": {
+      "user": 1,
+      "cryptocurrency": 2
+    }
+  }
+]

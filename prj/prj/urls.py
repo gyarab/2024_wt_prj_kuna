@@ -24,4 +24,5 @@ urlpatterns = [
     path('coin', TemplateView.as_view(template_name='main/coin.html')),
     path('favorites', TemplateView.as_view(template_name='main/favorites.html')),
     path('', TemplateView.as_view(template_name='main/homepage.html')),
+    path('about', TemplateView.as_view(template_name='main/about.html')),    
 ]

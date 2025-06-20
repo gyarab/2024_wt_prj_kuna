@@ -1,0 +1,17 @@
+[
+  {
+    "model": "app_name.cryptotype",
+    "pk": 1,
+    "fields": { "name": "Standard" }
+  },
+  {
+    "model": "app_name.cryptotype",
+    "pk": 2,
+    "fields": { "name": "Memecoin" }
+  },
+  {
+    "model": "app_name.cryptotype",
+    "pk": 3,
+    "fields": { "name": "Gaming" }
+  }
+]
